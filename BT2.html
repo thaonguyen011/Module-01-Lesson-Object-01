@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Temperature(cel) {
+        this.cel = cel;
+        this.convertF = () => this.cel * 1.8 + 32;
+        this.convertK = () => this.cel + 273.15;
+      }
+
+      let temp = new Temperature(25);
+      alert("Đổi sang độ F: " + temp.convertF());
+      alert("Đổi sang độ K: " + temp.convertK());
+    </script>
+  </body>
+</html>
