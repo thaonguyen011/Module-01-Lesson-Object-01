@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Date(day, month, year) {
+        // this.day = day;
+        this.month = month;
+        this.year = year;
+        this.getDay = function () {
+          return this.day;
+        };
+        this.getMonth = function () {
+          return this.month;
+        };
+        this.getYear = function () {
+          return this.year;
+        };
+        this.setDay = function (day1) {
+          this.day = day1;
+        };
+        this.setMonth = function (month) {
+          this.month= month;
+        };
+        this.setYear = function (year) {
+          this.year= year;
+        };
+        this.setDate = function () {
+          return this.day + "/" + this.month + "/" + this.year;
+        };
+      }
+
+      let date = new Date(20, 9, 2023);
+      let day = date.getDay();
+      alert(day);
+      let month = date.getMonth();
+      let year = date.getYear();
+      date.setDay(22);
+      alert(date.setDate());
+
+    // let date2 = new Date(10, 11, 2022);
+    // let day1 = date2.getDay();
+    // alert(day1);
+    </script>
+  </body>
+</html>
