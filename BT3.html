@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let Mobile = function (name, bat, memTyping, memSend, memRe) {
+        this.name = name;
+        this.bat = bat;
+        this.memTyping = memTyping;
+        this.memSend = memSend;
+        this.memRe = memRe;
+        this.status = status;
+        this.getStatus = () => {
+          if (this.status == true) {
+            alert(`Dien thoai ${this.name} dang bat`);
+          } else {
+            alert("Dien thoai dang tat");
+          }
+          this.decrease();
+        };
+        this.getBat = () => alert(`Pin: ${this.bat}`);
+        this.turnOn = () => (this.status = true);
+        this.turnOff = () => (this.status = false);
+        this.charge = () => this.bat++;
+        this.decrease = () => this.bat--;
+        this.typeMess = (mess) => {
+          this.decrease();
+          this.memTyping = mess;
+          return this.memTyping;
+        };
+        this.sendMess = (mobile) => {
+          this.decrease();
+          alert("Ban vua gui tin nhan cho " + mobile.name);
+          this.memSend = this.memTyping;
+          mobile.memRe = this.memSend;
+          return this.memSend;
+        };
+        this.receiveMess = (mobile) => {
+          this.decrease();
+          alert("Co 1 tin nhan den tu " + mobile.name);
+          this.memRe = mobile.memSend;
+          return this.memRe;
+        };
+        this.checkSendedMess = function () {
+          this.decrease();
+          alert(`Tin nhan vua gui là ${this.memSend}`);
+        };
+
+        this.checkRecievedMess = () => {
+          this.decrease();
+          alert(`Tin nhan vua nhan là ${this.memRe}`);
+        };
+      };
+
+
+
+      let mobile1 = new Mobile("nokia", 100);
+      let mobile2 = new Mobile("iphone", 100);
+
+      mobile1.turnOn();
+      mobile1.getStatus();
+      mobile1.getBat();
+      mobile1.typeMess("Message from nokia");
+      mobile1.sendMess(mobile2);
+      // console.log(mobile1.sendMess(mobile2));
+      // mobile1.getBat();
+      // console.log(mobile1.checkSendedMess()); ///?????
+
+      mobile2.turnOn();
+      mobile2.getStatus();
+      mobile2.receiveMess(mobile1);
+      mobile2.checkRecievedMess(); // undefined????
+      mobile2.getBat();
+      mobile2.charge();
+      mobile2.getBat();
+
+    </script>
+  </body>
+</html>
